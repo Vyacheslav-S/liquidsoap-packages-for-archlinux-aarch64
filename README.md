@@ -1,1 +1,1 @@
-# liquidsoap-packages-for-archlinux-aarch64
+# liquidsoap packages for Arch Linux aarch64
