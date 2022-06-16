@@ -1,0 +1,33 @@
+# Maintainer: robertfoster
+# Contributor: Jakob Gahde <j5lx@fmail.co.uk>
+
+pkgname=ocaml-alsa
+pkgver=0.3.0
+pkgrel=4
+pkgdesc="OCaml ALSA bindings"
+arch=('i686' 'x86_64' 'aarch64')
+url='https://github.com/savonet/ocaml-alsa'
+license=(GPL2)
+depends=(ocaml alsa-lib)
+makedepends=('git' 'curl' 'ocaml-findlib' 'dune')
+options=('!strip' '!makeflags')
+provides=($pkgname)
+source=('git+https://github.com/savonet/ocaml-alsa.git')
+sha256sums=('SKIP')
+
+
+build() {
+  cd "ocaml-alsa"
+
+  dune build
+}
+
+package() {
+  cd "ocaml-alsa"
+
+  DESTDIR="${pkgdir}" dune install --prefix "/usr" --libdir "/usr/lib/ocaml"
+
+  install -dm755 "${pkgdir}/usr/share/"
+  mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
+}
+
