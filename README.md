@@ -1,1 +1,1 @@
-# liquidsoap & packages for Arch Linux aarch64
+# liquidsoap & packages & pkgbuild for Arch Linux aarch64
